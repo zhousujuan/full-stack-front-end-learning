@@ -34,33 +34,38 @@ window.Vue.factory()
 */
 //init 结束 
 
-    /* 工具代码 */
-
+    
+    //工具代码
     //冻结的对象无法再更改
     var emptyObject = Object.freeze({});
   
     // These helpers produce better VM code in JS engines due to their
     // explicitness and function inlining.
-    function isUndef (v) {
+    //上面两行英文翻译：这些帮助器由于其明确性和内联功能，在JS引擎中产生了更好的VM代码。
+    
+    //下面的函数是封装用来判断基本类型、引用类型、类型转换的方法
+
+    function isUndef (v) {//判断未定义
       return v === undefined || v === null
     }
   
-    function isDef (v) {
+    function isDef (v) {//判断已定义
       return v !== undefined && v !== null
     }
   
-    function isTrue (v) {
+    function isTrue (v) {//判断为true
       return v === true
     }
   
-    function isFalse (v) {
+    function isFalse (v) {//判断为false
       return v === false
     }
   
     /**
      * Check if value is primitive.
+     * 翻译：检查值是否为原始值。
      */
-    function isPrimitive (value) {
+    function isPrimitive (value) {//判断为原始类型
       return (
         typeof value === 'string' ||
         typeof value === 'number' ||
@@ -74,29 +79,44 @@ window.Vue.factory()
      * Quick object check - this is primarily used to tell
      * Objects from primitive values when we know the value
      * is a JSON-compliant type.
+     * 
+     * 百度翻译：检查值是否为基元。
+     * 快速对象检查-当我们知道值是符合JSON的类型时，
+     * 这主要用于从基元值中区分对象。
      */
-    function isObject (obj) {
+    function isObject (obj) {//判断为obj
       return obj !== null && typeof obj === 'object'
     }
   
     /**
      * Get the raw type string of a value, e.g., [object Object].
+     * 百度翻译：获取值的原始类型字符串，例如：[object Object].
      */
     var _toString = Object.prototype.toString;
+    /*
+      Object.prototype.toString()
+      toString() 方法返回一个表示该对象的字符串。
+    */
   
     function toRawType (value) {
+      //切割引用类型得到后面的基本类型，
+      //例如：[object RegExp] 得到的就是 RegExp
       return _toString.call(value).slice(8, -1)
     }
   
     /**
      * Strict object type check. Only returns true
      * for plain JavaScript objects.
+     * 翻译：
      */
     function isPlainObject (obj) {
+      //判断纯粹的对象："纯粹的对象"，
+      //就是通过 { }、new Object()、Object.create(null) 创建的对象
       return _toString.call(obj) === '[object Object]'
     }
   
     function isRegExp (v) {
+      //判断原生引用类型
       return _toString.call(v) === '[object RegExp]'
     }
   
@@ -104,11 +124,14 @@ window.Vue.factory()
      * Check if val is a valid array index.
      */
     function isValidArrayIndex (val) {
+      // 检查val是否是一个有效的数组索引，
+      //其实就是验证是否是一个非无穷大的正整数
       var n = parseFloat(String(val));
       return n >= 0 && Math.floor(n) === n && isFinite(val)
     }
   
     function isPromise (val) {
+      //判断是否是Promise
       return (
         isDef(val) &&
         typeof val.then === 'function' &&
@@ -120,6 +143,7 @@ window.Vue.factory()
      * Convert a value to a string that is actually rendered.
      */
     function toString (val) {
+      //类型转换成String
       return val == null
         ? ''
         : Array.isArray(val) || (isPlainObject(val) && val.toString === _toString)
@@ -132,6 +156,7 @@ window.Vue.factory()
      * If the conversion fails, return original string.
      */
     function toNumber (val) {
+      //类型转换为Number
       var n = parseFloat(val);
       return isNaN(n) ? val : n
     }
