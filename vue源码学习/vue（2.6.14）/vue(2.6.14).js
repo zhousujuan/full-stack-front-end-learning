@@ -3,14 +3,38 @@
  * (c) 2014-2021 Evan You
  * Released under the MIT License.
  */
+//init
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
     (global = global || self, global.Vue = factory());
-  }(this, function () { 'use strict';
+  }(
+    this, 
+    function () { 
+      'use strict';
+/*
+  上面的代码可以变形为下面的代码：
+##############################
+三目运算表达式改变为if...else...表达式
+if(typeof exports === 'object' && typeof moudle!=='undefined'){//检查CommonJS
+            moudle.exports=factory()
+        }else{
+            if(typeof define==='function'&&define.amd){//AMD异步模块定义，检查JavaScript依赖管理库
+            define(factory)
+        }else{
+            (global=global||self,global.Vue=factory());
+        }
+        }
+===>等价于：
+
+##############################
+*/
+//init 结束
+
   
-    /*  */
-  
+    /* 工具代码 */
+
+    //冻结的对象无法再更改
     var emptyObject = Object.freeze({});
   
     // These helpers produce better VM code in JS engines due to their

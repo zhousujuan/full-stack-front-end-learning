@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+</head>
+<body>
+    <script>
+        (function(global,factory){
+            //开始
+            if(typeof exports === 'object' && typeof moudle!=='undefined'){//检查CommonJS
+            moudle.exports=factory()
+        }else{
+            if(typeof define==='function'&&define.amd){//AMD异步模块定义，检查JavaScript依赖管理库
+            define(factory)
+        }else{
+            (global=global||self,global.Vue=factory());
+        }
+        }
+        //结束
+        //等价于
+        window.Vue.factory()
+        /*factory()是个匿名函数，
+        该函数并没有自执行
+        设计参数window，并传入window对象，不会污染全局变量，也不会被别的代码污染
+        */        
+        })
+        
+    </script>
+</body>
+</html>
