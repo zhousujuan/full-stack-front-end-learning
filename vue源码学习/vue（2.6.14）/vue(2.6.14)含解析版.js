@@ -107,7 +107,7 @@ window.Vue.factory()
     /**
      * Strict object type check. Only returns true
      * for plain JavaScript objects.
-     * 翻译：
+     * 翻译：严格的对象类型检查。仅对普通JavaScript对象返回true。
      */
     function isPlainObject (obj) {
       //判断纯粹的对象："纯粹的对象"，
@@ -122,6 +122,7 @@ window.Vue.factory()
   
     /**
      * Check if val is a valid array index.
+     * 翻译：检查val是否是有效的数组索引。
      */
     function isValidArrayIndex (val) {
       // 检查val是否是一个有效的数组索引，
@@ -141,6 +142,8 @@ window.Vue.factory()
   
     /**
      * Convert a value to a string that is actually rendered.
+     * 翻译：将值转换为实际呈现的字符串。
+     * 
      */
     function toString (val) {
       //类型转换成String
@@ -154,6 +157,7 @@ window.Vue.factory()
     /**
      * Convert an input value to a number for persistence.
      * If the conversion fails, return original string.
+     * 翻译：将输入值转换为用于持久性的数字。如果转换失败，则返回原始字符串。
      */
     function toNumber (val) {
       //类型转换为Number
@@ -164,6 +168,8 @@ window.Vue.factory()
     /**
      * Make a map and return a function for checking if a key
      * is in that map.
+     * 翻译：制作一个映射并返回一个函数，用于检查该映射中是否有键。
+     * 
      */
     function makeMap (
       str,
