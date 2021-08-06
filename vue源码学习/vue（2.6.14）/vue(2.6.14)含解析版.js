@@ -26,12 +26,14 @@ if(typeof exports === 'object' && typeof moudle!=='undefined'){//检查CommonJS
         }
         }
 ===>等价于：
-
+window.Vue.factory()
+//factory()是个匿名函数，
+//该函数并没有自执行
+//设计参数window，并传入window对象，不会污染全局变量，也不会被别的代码污染
 ##############################
 */
-//init 结束
+//init 结束 
 
-  
     /* 工具代码 */
 
     //冻结的对象无法再更改
