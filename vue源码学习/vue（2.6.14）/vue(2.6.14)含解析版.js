@@ -3,6 +3,7 @@
  * (c) 2014-2021 Evan You
  * Released under the MIT License.
  */
+//1
 //init
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -34,15 +35,18 @@ window.Vue.factory()
 */
 //init 结束 
 
-    
+    //2
     //工具代码
     //冻结的对象无法再更改
     var emptyObject = Object.freeze({});
+    //工具代码结束
   
     // These helpers produce better VM code in JS engines due to their
     // explicitness and function inlining.
     //上面两行英文翻译：这些帮助器由于其明确性和内联功能，在JS引擎中产生了更好的VM代码。
     
+
+    //3
     //下面的函数是封装用来判断基本类型、引用类型、类型转换的方法
 
     function isUndef (v) {//判断未定义
@@ -171,6 +175,13 @@ window.Vue.factory()
      * 翻译：制作一个映射并返回一个函数，用于检查该映射中是否有键。
      * 
      */
+
+//4
+/*
+makeMap 方法将字符串切割，
+放到map中，
+用于校验其中的某个字符串是否存在（区分大小写）于map中 e.g.
+*/
     function makeMap (
       str,
       expectsLowerCase
@@ -187,16 +198,19 @@ window.Vue.factory()
   
     /**
      * Check if a tag is a built-in tag.
+     * 翻译：检查标记是否为内置标记
      */
     var isBuiltInTag = makeMap('slot,component', true);
   
     /**
      * Check if an attribute is a reserved attribute.
+     * 翻译：检查属性是否为保留属性
      */
     var isReservedAttribute = makeMap('key,ref,slot,slot-scope,is');
   
     /**
      * Remove an item from an array.
+     * 翻译：从数组中删除项
      */
     function remove (arr, item) {
       if (arr.length) {
@@ -209,6 +223,7 @@ window.Vue.factory()
   
     /**
      * Check whether an object has the property.
+     * 翻译：检查对象是否具有该属性
      */
     var hasOwnProperty = Object.prototype.hasOwnProperty;
     function hasOwn (obj, key) {
@@ -217,6 +232,7 @@ window.Vue.factory()
   
     /**
      * Create a cached version of a pure function.
+     * 翻译：创建纯函数的创建版本
      */
     function cached (fn) {
       var cache = Object.create(null);
