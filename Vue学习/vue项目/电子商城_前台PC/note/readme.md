@@ -66,3 +66,92 @@
 这个文件可能是markdown文件，可能是word文件，其他的文件也没关系，
 
 还可能是网页上的一个网址，
+
+### 对/调/测接口
+
+postman工具
+
+我们开发的项目的时候，会给我们一个文档，分配项目的需求
+第一件事，首先要测试一下我们的接口，看一下是否描述正确
+
+
+
+测试接口，可能需要一天或者好几天都可能，因为测完接口，有问题的话，要跟服务端进行反馈，
+
+####　怎么测试接口
+
+- 安装工具：postman
+- 注册问题：
+
+可以进行注册也可不注册，如果注册的话，它会保存我们的记录，如果我们在另外一台设备上登录的时候也会有我们的操作记录
+
+- 进行测试：
+
+1.点击加号
+
+![image-20210624221401346](C:\Users\juan~er\AppData\Roaming\Typora\typora-user-images\image-20210624221401346.png)
+
+2.出现一个密码
+
+![image-20210624221447071](C:\Users\juan~er\AppData\Roaming\Typora\typora-user-images\image-20210624221447071.png)
+
+3.找到我们的接口文档：api文档.doc
+
+- 登录测试
+
+![image-20210624222018436](C:\Users\juan~er\AppData\Roaming\Typora\typora-user-images\image-20210624222018436.png)
+
+params里面放的是get请求的查询字符串操作
+
+body里面放post请求的body参数
+
+## 项目初始化
+
+初始化一个项目，搭建脚手架，选择相关配置
+
+- 创建一个新项目
+
+> 命令：vue create  项目名字
+
+等待，下载
+
+- 选择相关配置
+
+![image-20210820131909582](D:\我的GitHub\前端全栈学习\full-stack-front-end-learning\Vue学习\vue项目\电子商城_前台PC\images\项目配置选择.PNG)
+
+这里选择，第一个就可以了，我们使用vue2来进行开发
+
+直接回车，等待下载
+
+下载成功，如果需要运行我们的项目，根据终端的提示，就可以直接在本地运行我们的项目
+
+## git管理
+
+设置忽略文件，`.gitignore`
+
+```
+.DS_Store
+node_modules
+/dist
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+```
+
