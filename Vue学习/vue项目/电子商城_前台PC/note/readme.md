@@ -157,3 +157,82 @@ pnpm-debug.log*
 
 ## 路由配置
 
+下载vue-router
+
+第一件事情。先搭建路由。
+
+初始化里面的项目里面基本都搭建好了我们的基本配置，我们的的任务就是把里面的配置项改成我们自己需要的配置项
+
+
+
+更改之前，我们先创建一些组件
+
+
+
+我们先实现四个路由，分别是首页、搜索、登录和注册，其他的后面再说
+
+![image-20210626104029043](C:\Users\juan~er\AppData\Roaming\Typora\typora-user-images\image-20210626104029043.png)
+
+进行路由 配置
+
+router/index.js
+
+```
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+/*引入组件 */
+import Home from '../views/Home' 
+import Login from '../views/Login'
+import Search from '../views/Search'
+import Register from '../views/Register'
+
+Vue.use(VueRouter)
+
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  
+]
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
+
+export default router
+
+```
+
+在app.vue
+
+```
+<template>
+  <router-view/>
+</template>
+
+<style lang="less">
+
+</style>
+
+```
+
