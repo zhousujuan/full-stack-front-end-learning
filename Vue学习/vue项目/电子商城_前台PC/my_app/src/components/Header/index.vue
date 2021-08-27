@@ -27,7 +27,7 @@
               
           </router-link>
 
-          <form class="header-form">
+          <form class="header-form" @submit.prevent="toSearch">
               <input type="text"/>
               <button>搜索</button>
           </form>
@@ -37,7 +37,12 @@
 
 <script>
 export default {
-
+    name:'Header',
+    methods:{
+        toSearch(){
+            this.$router.history.push('/search')
+        }
+    }
 }
 </script>
 

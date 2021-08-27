@@ -569,3 +569,42 @@ a:link:hover{
 
 然后，我们需要在main中进行引入
 
+#### Header的路由跳转方式
+
+我们的路由跳转方式有几种？
+两种
+
+- 路由链接跳转
+  - 用的是`<router-link>`
+
+- 编程式导航
+  - 
+
+
+
+我们这里的搜索的按钮，点击过去，进入到的应该是我们的搜索路由，所以，我们这里应该用到的路由跳转是：编程式导航
+
+
+
+首先，我们这里的button，要绑定点击事件
+
+form表单也可以绑定@submit事件，这里的submit事件要记得阻止默认行为(.prevent)，不然会刷新
+
+```
+@submit.prevent="t"
+```
+
+
+
+使用编程式导航
+
+```js
+methods:{
+        toSearch(){
+            this.$router.history.push('/search')
+        }
+    }
+```
+
+
+
