@@ -591,7 +591,7 @@ a:link:hover{
 form表单也可以绑定@submit事件，这里的submit事件要记得阻止默认行为(.prevent)，不然会刷新
 
 ```
-@submit.prevent="t"
+@submit.prevent="toSearch"
 ```
 
 
@@ -607,4 +607,32 @@ methods:{
 ```
 
 
+
+### 完成Footer组件
+
+#### 静态样式
+
+根据样式要求，完成footer的静态样式，
+
+> 报错：`Parsing error: x-invalid-end-tag  vue/no-parsing-error`
+>
+> 原因：
+>
+> View将标签渲染为原生html标签时，由于这些标签是自闭合的，所以有end标签会报错。
+>
+> 解决：
+>
+> 文件/首选项/设置
+>
+> 在上面的搜索栏输入：vetur.validation.template
+>
+> 取消勾选
+>
+> ==》第一次解决了
+>
+> 但是，并没有成功解决问题
+>
+> 方法二：
+>
+> 
 
