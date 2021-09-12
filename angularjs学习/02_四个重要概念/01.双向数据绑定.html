@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body ng-app ng-init="userName='zhousujuan'">
     <!-- 
         1.数据绑定：数据从一个地方A转移（传递）到另一个地方B,而且这个操作由框架来完成
         2.双向数据绑定：数据可以从View（视图层）流向Model（模型），也可以从Model流向View
@@ -17,6 +17,12 @@
              ng-model是双向数据绑定，而{{}}是单向数据绑定
         3.ng-init 用来初始化当前作用域变量
      -->
+
+     <input type="text" ng-model="userName" > 
+     <p>姓名1：{{userName}}</p>
+
+     <input type="text" ng-model="userName"> 
+     <p>姓名2：{{userName}}</p>
 
      <!-- 引入angularjs -->
     <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
