@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依赖注入</title>
+    <!-- 引入angularjs -->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <!-- 
+        依赖对象：完成某个特定的功能需要某个对象才能实现，这个对象就是依赖对象
+        依赖注入：依赖的对象以形参的形式被注入进来使用，这种方式就是声明式依赖注入
+        angular的"$scope"对象就是依赖对象，并且是依赖注入的形式进行使用
+        ！！！形参必须是特定的名称，否则angular无法注入抛出异常
+
+        回调函数的event就是依赖对象
+        回调函数有形参就是依赖注入
+     -->
+
+     <button id="btn">click</button>
+     <script>
+         window.onload=function(){
+             document.getElementById("btn").onclick=function(event){
+                alert(event.clientX)
+             }
+         }
+     </script>
+
+     <script>
+         var arr=[1,2,3,4,5]
+         var newArr=[]
+         //命令式
+         for(var i=0;i<arr.length;i++){
+             var value=arr[i]+10
+            newArr.push(value)
+         }
+         console.log(newArr)
+        //  声明式
+        let newArr1=arr.map(function(item,index){
+            // console.log(item,index)
+            return item+10
+        })
+        
+        console.log(newArr1)
+
+     </script>
+</body>
+</html>

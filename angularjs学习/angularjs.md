@@ -203,7 +203,91 @@ ng-app:告诉angualar核心它管理当前标签所包含的整个区域
 
 > 今天晚上回家的时候，发现自己的代码，在本地也能正常运行了，具体的原因我也不太清除，反正是实现了代码的正常运行，看来，应该是昨天的电脑，并没有反应过来===》**加强对电脑的认识**
 
----
+## 依赖注入
 
-上面的内容都是到/13日晚上之前的内容，从现在开始，我们加入每天加入我们的时间记录。
+### 依赖对象
+
+完成某个特定的功能需要某个对象才能实现，这个对象就是依赖对象
+
+### 依赖注入
+
+- 依赖的对象以形参的形式被注入进来使用，这种方式就是**声明式**依赖注入
+
+#### 开发的两种方式：
+
+需求：将数组的每一项值+10输出
+
+1. ##### 声明式
+
+   1. 更加注重的是执行的结果
+   2. 只要拿到结果，就可以
+   3. 声明式是对命令式的局部包装
+   4. 像考试的选择填空题
+
+2. ##### 命令式
+
+   1. 更加注重的是执行的过程
+   2. 要根据我的命令来，一步一步的来
+   3. 像考试的解答题
+
+- angular的"$scope"对象就是依赖对象，并且是依赖注入的形式进行使用
+- ！！！形参必须是特定的名称，否则angular无法注入抛出异常
+
+### 例子
+
+- 回调函数的event就是依赖对象
+- 回调函数有形参就是依赖注入
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依赖注入</title>
+    <!-- 引入angularjs -->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+    <!-- 
+        依赖对象：完成某个特定的功能需要某个对象才能实现，这个对象就是依赖对象
+        依赖注入：依赖的对象以形参的形式被注入进来使用，这种方式就是声明式依赖注入
+        angular的"$scope"对象就是依赖对象，并且是依赖注入的形式进行使用
+        ！！！形参必须是特定的名称，否则angular无法注入抛出异常
+
+        回调函数的event就是依赖对象
+        回调函数有形参就是依赖注入
+     -->
+
+     <button id="btn">click</button>
+     <script>
+         window.onload=function(){
+             document.getElementById("btn").onclick=function(event){
+                alert(event.clientX)
+             }
+         }
+     </script>
+
+     <script>
+         var arr=[1,2,3,4,5]
+         var newArr=[]
+         //命令式
+         for(var i=0;i<arr.length;i++){
+             var value=arr[i]+10
+            newArr.push(value)
+         }
+         console.log(newArr)
+        //  声明式
+        let newArr1=arr.map(function(item,index){
+            // console.log(item,index)
+            return item+10
+        })
+        
+        console.log(newArr1)
+
+     </script>
+</body>
+</html>
+```
 
