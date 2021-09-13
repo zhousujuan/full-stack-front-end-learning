@@ -185,7 +185,7 @@ ng-app:告诉angualar核心它管理当前标签所包含的整个区域
             $scope.firstName="zhou"
             $scope.lastName="sujuan"
             $scope.getName=function(){
-                return $scope.firstName+''+$scope.lastName
+                return $scope.firstName+' '+$scope.lastName
             }
         }
      </script>
@@ -194,3 +194,7 @@ ng-app:告诉angualar核心它管理当前标签所包含的整个区域
 ```
 
 > 这里的内容是大概知道了，但是在我本地的电脑里面，也不知道为什么不能够，成功的运行出来，后面还需要自己及时的处理这个问题。
+
+问题解决===>
+
+> 在家里面的自己的电脑里面，不能正常的运行出来，但是今天在公司的电脑上面，可以正常的运行出来，说明是家里面的电脑的问题，不是自己代码的原因，在代码成功运行之后，还进行了代码的优化处理（样式的优化，添加空格，方便后期的美观）
