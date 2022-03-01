@@ -14,3 +14,24 @@
 
 开发即运维!
 
+环境配置四十分麻烦的，每一个机器都要部署环境（集群Redis，ES,  Hadoop ...）!  费时费力。
+
+发布一个项目  （jar +  (Redis  MySQL  jdk  ES)），项目能不能都带上环境安装打包！
+
+之前服务器配置一个应用的环境 Redis MySQL jdk  ES  Hadoop , 配置超麻烦，不能跨平台。
+
+Windows，最后发布到Linux！
+
+传统：开发jar   ，运维来做！
+
+现在：开发打包部署上线，一套流程做完！
+
+docker给以上问题提出了解决方案！
+
+
+
+# Vue
+
+# React
+
+# JavaScript
