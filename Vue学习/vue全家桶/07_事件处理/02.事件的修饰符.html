@@ -20,6 +20,15 @@
             padding: 5px;
             background-color: burlywood;
         }
+        .list {
+           width: 200px;
+           height: 200px;
+           background-color: rgb(197, 113, 18);
+           overflow: auto;
+        }
+        li {
+            height: 100px;
+        }
     </style>
 </head>
 <body>
@@ -58,6 +67,24 @@
          <hr/>
          <br/>
 
+         <!-- self(只有e.target是当前操作的元素时才触发事件) -->
+         <div @click.self="showInfo">
+            <button @click="showInfo">点我</button>
+        </div>
+        <br/>
+        <hr/>
+        <br/>
+
+         <!-- passive(事件的默认事件（行为）立即执行，无需等待事件回调执行完毕) (不是所有都可以有效果，在移动端常用)-->
+         <ul class="list" @wheel.passive="demo">
+             <li>1</li>
+             <li>2</li>
+             <li>3</li>
+             <li>4</li>
+         </ul>
+        <br/>
+        <hr/>
+        <br/>
     </div>
 </body>
 <script type="text/javascript">
@@ -76,6 +103,13 @@
             },
             showMsg(msg) {
                 console.log("事件捕获", msg);
+            },
+            demo() {
+                console.log("hello");
+                for (let index = 0; index < 100000; index++) {
+                    console.log("*");
+                }
+                console.log("累换了");
             }
         }
     })
