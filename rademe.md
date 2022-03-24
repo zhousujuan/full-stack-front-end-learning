@@ -351,6 +351,3 @@ import { Graph } from '@antv/x6';
 
 #### 案例
 
-##### hello world
-
-一个最简单的入门的简单案例
