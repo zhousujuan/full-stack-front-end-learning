@@ -1,0 +1,8 @@
+1.新建一个app.ts文件
+	var message:string = "Hello World" 
+	console.log(message)
+2.执行 tsc app.ts 将 ts转换成js
+这个时候，在当前目录下（与app.ts同一目录下）就会生成一个app.js文件
+
+3.node app.js
+就会输出我们想要的结果了
