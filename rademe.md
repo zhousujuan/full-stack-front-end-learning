@@ -71,6 +71,11 @@ docker给以上问题提出了解决方案！
    1. 这里学了React Native，只用js也可以开发移动端app
 3. 使用`虚拟DOM`+优秀的`Diff算法`，尽量减少与真实DOM的交互
 
+#### 高效的原因
+
+1. 使用虚拟(virtual)DOM,不总是直接操作页面真实DOM
+2. DOM Diff算法，最小化页面重绘。
+
 ## Angular
 
 # JavaScript
