@@ -9,6 +9,51 @@
     <title>列表渲染</title>
 </head>
 <body>
-    
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <!-- 遍历数组 -->
+        <ul>
+            <li v-for="(p, index) in persons" :key="index">
+                {{p}}
+            </li>
+        </ul>
+        <!-- 遍历数组 -->
+        <ul>
+            <li v-for="(obj, index) in objs" :key="index">
+                {{obj}}
+            </li>
+        </ul>
+        <!-- 遍历字符串 -->
+        <ul>
+            <li v-for="(str, index) in string" :key="index">
+                {{str}}
+            </li>
+        </ul>
+        <!-- 遍历指定次数 -->
+        <ul>
+            <li v-for="(num, index) in 5" :key="index">
+                {{num}}
+            </li>
+        </ul>
+    </div>
+
 </body>
+<script type="text/javascript"> 
+    Vue.config.productionTip = false
+
+    new Vue({
+        el: "#root",
+        data: {
+            persons: [
+                {id: '001', name: 'lili', age: 28},
+                {id: '002', name: 'lisa', age: 8},
+            ],
+            objs: {
+                a: 111,
+                b: 222
+            },
+            string: 'hello'
+        }
+    })
+</script>
 </html>
