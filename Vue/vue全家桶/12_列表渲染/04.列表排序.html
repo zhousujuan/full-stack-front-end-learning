@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>列表排序</title>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <!-- 遍历数组 -->
+        搜索名字：<input type="text" v-model="keyVlaue">
+        <button @click="sortType = 0">原顺序</button>
+        <button @click="sortType = 1">降序</button>
+        <button @click="sortType = 2">升序</button>
+        <ul>
+            <li v-for="(p, index) in filterData" :key="index">
+                {{p.id}} -- {{p.name}} -- {{p.age}}
+            </li>
+        </ul>
+    </div>
+
+</body>
+<script type="text/javascript"> 
+    Vue.config.productionTip = false
+
+   // 用computed实现
+   new Vue({
+    el: "#root",
+    data: {
+        keyVlaue: '',
+        sortType: 0, //0 原顺序 1 降序 2升序
+        persons: [
+            {id: '001', name: 'lili', age: 28},
+            {id: '002', name: 'lisa', age: 8},
+            {id: '003', name: 'mary', age: 18},
+        ],
+    },
+    computed: {
+        filterData() {
+            const arr = this.filterData = this.persons.filter((p) => {
+                return p.name.indexOf(this.keyVlaue) !== -1
+            })
+
+            if(this.sortType) {
+                arr.sort((p1, p2) => {
+                    return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age
+                })
+            }
+
+            return arr
+        }
+    }
+   })
+</script>
+</html>
