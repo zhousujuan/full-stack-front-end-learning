@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>列表渲染</title>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+    <div id="root">
+        <!-- 遍历数组 -->
+        搜索名字：<input type="text" v-model="keyVlaue">
+        <ul>
+            <li v-for="(p, index) in filterData" :key="index">
+                {{p.id}} -- {{p.name}} -- {{p.age}}
+            </li>
+        </ul>
+        <div v-if="filterData.length === 0">暂无数据</div>
+    </div>
+
+</body>
+<script type="text/javascript"> 
+    Vue.config.productionTip = false
+
+    // 用watch实现
+    //#region
+    /*
+    new Vue({
+        el: "#root",
+        data: {
+            keyVlaue: '',
+            filterData: '',
+            persons: [
+                {id: '001', name: 'lili', age: 28},
+                {id: '002', name: 'lisa', age: 8},
+                {id: '003', name: 'mary', age: 18},
+            ],
+        },
+        watch: {
+            immediate: true,//最开始的时候，也要调用一次
+            keyVlaue: {
+                handeler(newValue) {
+                    this.filterData = this.persons.filter((p) => {
+                        return p.name.indexOf(newValue) !== -1
+                    })
+                }
+            }
+        }
+    })
+    */
+   //#endregion
+
+   // 用computed实现
+   new Vue({
+    el: "#root",
+    data: {
+        keyVlaue: '',
+        filterData: '',
+        persons: [
+            {id: '001', name: 'lili', age: 28},
+            {id: '002', name: 'lisa', age: 8},
+            {id: '003', name: 'mary', age: 18},
+        ],
+    },
+    computed: {
+        filterData() {
+            return this.filterData = this.persons.filter((p) => {
+                return p.name.indexOf(this.keyVlaue) !== -1
+            })
+        }
+    }
+   })
+</script>
+</html>
